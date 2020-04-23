@@ -10,7 +10,7 @@ class _Login extends State<Login> {
   GlobalKey<FormState> loginKey = new GlobalKey<FormState>();
   String userName;
   String password;
-  bool isShowPassWord = false;
+//  bool isShowPassWord = false;
 
   void login(){
     //读取当前的Form状态
@@ -22,11 +22,12 @@ class _Login extends State<Login> {
     }
   }
 
-  void showPassWord() {
-    setState(() {
-      isShowPassWord = !isShowPassWord;
-    });
-  }
+//  void showPassWord() {
+//    setState(() {
+//      isShowPassWord = !isShowPassWord;
+//    });
+//  }
+
   @override
   Widget build(BuildContext context){
     return new MaterialApp(

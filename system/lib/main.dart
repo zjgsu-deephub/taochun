@@ -7,7 +7,6 @@ import 'package:system/components/tabbar_item.dart';
 import 'package:system/login/login.dart';
 
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -65,7 +64,7 @@ class MyStackPageState extends State<MyStackPage> {
         unselectedFontSize: 14,
         type: BottomNavigationBarType.fixed,
         items: [
-          TabBarItem("img", "首页"),
+          TabBarItem("img", "主页"),
           TabBarItem("img", "数据"),
           TabBarItem("img", "模型"),
           TabBarItem("img", "我"),
