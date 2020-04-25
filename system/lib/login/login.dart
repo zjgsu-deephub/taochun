@@ -1,175 +1,109 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
+main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
   @override
-  _Login createState() => new _Login();
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Login"),
+        ),
+        body: new ContentWidget(),
+      ),
+    );
+  }
 }
 
-class _Login extends State<Login> {
-  //获取Key用来获取Form表单组件
-  GlobalKey<FormState> loginKey = new GlobalKey<FormState>();
-  String userName;
-  String password;
-//  bool isShowPassWord = false;
-
-  void login(){
-    //读取当前的Form状态
-    var loginForm = loginKey.currentState;
-    //验证Form表单
-    if(loginForm.validate()){
-      loginForm.save();
-      print('userName: ' + userName + ' password: ' + password);
-    }
+class ContentWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: new LoginWidget(),
+    );
   }
+}
 
-//  void showPassWord() {
-//    setState(() {
-//      isShowPassWord = !isShowPassWord;
-//    });
-//  }
+class LoginWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new LoginWidgetState();
+  }
+}
+
+class LoginWidgetState extends State<LoginWidget> {
+  String username;
+  String password;
+
+  GlobalKey<FormState> globalKey = new GlobalKey();
 
   @override
-  Widget build(BuildContext context){
-    return new MaterialApp(
-      title: 'Form表单示例',
-      home: new Scaffold(
-        body: new Column(
-          children: <Widget>[
-            new Container(
-                padding: EdgeInsets.only(top: 100.0, bottom: 10.0),
-                child: new Text(
-                  'LOGO',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 53, 53, 53),
-                      fontSize: 50.0
-                  ),
-                )
-            ),
-            new Container(
-              padding: const EdgeInsets.all(16.0),
-              child: new Form(
-                key: loginKey,
-                autovalidate: true,
-                child: new Column(
-                  children: <Widget>[
-                    new Container(
-                      decoration: new BoxDecoration(
-                          border: new Border(
-                              bottom: BorderSide(
-                                  color: Color.fromARGB(255, 240, 240, 240),
-                                  width: 1.0
-                              )
-                          )
-                      ),
-                      child: new TextFormField(
-                        decoration: new InputDecoration(
-                          labelText: '请输入手机号',
-                          labelStyle: new TextStyle( fontSize: 15.0, color: Color.fromARGB(255, 93, 93, 93)),
-                          border: InputBorder.none,
-                          // suffixIcon: new IconButton(
-                          //   icon: new Icon(
-                          //     Icons.close,
-                          //     color: Color.fromARGB(255, 126, 126, 126),
-                          //   ),
-                          //   onPressed: () {
-
-                          //   },
-                          // ),
-                        ),
-                        keyboardType: TextInputType.phone,
-                        onSaved: (value) {
-                          userName = value;
-                        },
-                        validator: (phone) {
-                          // if(phone.length == 0){
-                          //   return '请输入手机号';
-                          // }
-                        },
-                        onFieldSubmitted: (value) {
-
-                        },
-                      ),
-                    ),
-                    new Container(
-                      decoration: new BoxDecoration(
-                          border: new Border(
-                              bottom: BorderSide(
-                                  color: Color.fromARGB(255, 240, 240, 240),
-                                  width: 1.0
-                              )
-                          )
-                      ),
-                      child: new TextFormField(
-                        decoration:  new InputDecoration(
-                            labelText: '请输入密码',
-                            labelStyle: new TextStyle( fontSize: 15.0, color: Color.fromARGB(255, 93, 93, 93)),
-                            border: InputBorder.none,
-                            suffixIcon: new IconButton(
-                              icon: new Icon(
-                                isShowPassWord ? Icons.visibility : Icons.visibility_off,
-                                color: Color.fromARGB(255, 126, 126, 126),
-                              ),
-                              onPressed: showPassWord,
-                            )
-                        ),
-                        obscureText: !isShowPassWord,
-                        onSaved: (value) {
-                          password = value;
-                        },
-                      ),
-                    ),
-                    new Container(
-                      height: 45.0,
-                      margin: EdgeInsets.only(top: 40.0),
-                      child: new SizedBox.expand(
-                        child: new RaisedButton(
-                          onPressed: login,
-                          color: Color.fromARGB(255, 61, 203, 128),
-                          child: new Text(
-                            '登录',
-                            style: TextStyle(
-                                fontSize: 14.0,
-                                color: Color.fromARGB(255, 255, 255, 255)
-                            ),
-                          ),
-                          shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(45.0)),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      margin: EdgeInsets.only(top: 30.0),
-                      padding: EdgeInsets.only(left: 8.0, right: 8.0),
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          new Container(
-                            child:  Text(
-                              '注册账号',
-                              style: TextStyle(
-                                  fontSize: 13.0,
-                                  color: Color.fromARGB(255, 53, 53, 53)
-                              ),
-                            ),
-
-                          ),
-
-                          Text(
-                            '忘记密码？',
-                            style: TextStyle(
-                                fontSize: 13.0,
-                                color: Color.fromARGB(255, 53, 53, 53)
-                            ),
-                          ),
-                        ],
-                      ) ,
-                    ),
-
-                  ],
-                ),
+  Widget build(BuildContext context) {
+    return new Form(
+      key: globalKey,
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          new Container(
+            padding: EdgeInsets.only(top: 100.0, bottom: 10.0),
+            child: new Text(
+              "LOGO",
+              style: new TextStyle(
+                color: Color.fromARGB(255, 53, 53, 53),
+                fontSize: 50.0,
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          new TextFormField(
+            decoration: new InputDecoration(
+              icon: new Icon(Icons.people),
+              labelText: "请输入用户名",
+            ),
+            onSaved: (value) {
+              print("username");
+              username = value;
+            },
+            validator: (value) {
+              if (value == null || value.length == 0) {
+                return "用户名不能为空";
+              }
+              return null;
+            },
+          ),
+          new TextFormField(
+            obscureText: true,
+            decoration: new InputDecoration(
+              icon: new Icon(Icons.lock),
+              labelText: "请输入密码",
+            ),
+            onSaved: (value) {
+              print("password");
+              password = value;
+            },
+            validator: (value) {
+              if (value == null || value.length == 0) {
+                return "密码不能为空";
+              }
+              return null;
+            },
+          ),
+          new SizedBox(height: 10,),
+          new Container(
+            width: double.infinity,
+            child: new RaisedButton(
+              child: new Text("登陆", style: new TextStyle(fontSize: 20, color: Colors.white),),
+              onPressed: () {
+                print("点击了注册按钮");
+                globalKey.currentState.save();
+                globalKey.currentState.validate();
+                print("username: $username, password: $password");
+              },
+              color: Colors.blue,
+            ),
+          )
+        ],
       ),
     );
   }
