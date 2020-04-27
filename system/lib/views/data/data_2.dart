@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class Data2 extends StatelessWidget {
 
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

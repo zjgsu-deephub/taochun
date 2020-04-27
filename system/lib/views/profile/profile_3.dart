@@ -9,7 +9,7 @@ class Profile3 extends StatelessWidget {
       ),
       body: Center(
         child: new Container(
-          padding: EdgeInsets.all(40),
+          padding: EdgeInsets.all(30),
           child: new Column(
             children: <Widget>[
               Image.asset("assets/images/tmp.png", width: 200,),
@@ -53,7 +53,22 @@ class Profile3 extends StatelessWidget {
                   )
                 )
               ),
-              new SizedBox(height: 30,),
+              new SizedBox(height: 20,),
+              new Container(
+                width: double.infinity,
+                child: new RaisedButton(
+                  onPressed: null,
+                  child: new Text(
+                    "修改",
+                    style: new TextStyle(
+                      fontSize: 30,
+                      color: Colors.black,
+                    ),
+                  ),
+                  color: Colors.blue,
+                ),
+              ),
+              new SizedBox(height: 20,),
               new Container(
                 width: double.infinity,
                 child: new RaisedButton(

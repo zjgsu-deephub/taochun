@@ -40,4 +40,3 @@ class Profile1 extends StatelessWidget {
     );
   }
 }
-

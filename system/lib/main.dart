@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:system/views/home/home.dart';
 import 'package:system/views/data/data.dart';
 import 'package:system/views/data/data_1.dart';
+import 'package:system/views/data/data_1_1.dart';
 import 'package:system/views/data/data_2.dart';
 import 'package:system/views/model/model.dart';
 import 'package:system/views/model/model_1.dart';
@@ -9,8 +10,12 @@ import 'package:system/views/model/model_2.dart';
 import 'package:system/views/model/model_3.dart';
 import 'package:system/views/profile/profile.dart';
 import 'package:system/views/profile/profile_1.dart';
+import 'package:system/views/profile/profile_1_1.dart';
 import 'package:system/views/profile/profile_2.dart';
+import 'package:system/views/profile/profile_2_1.dart';
+import 'package:system/views/profile/profile_2_1_1.dart';
 import 'package:system/views/profile/profile_3.dart';
+import 'package:system/views/profile/profile_3_1.dart';
 import 'package:system/components/tabbar_item.dart';
 
 void main() => runApp(MyApp());
@@ -101,9 +106,9 @@ class MyStackPageState extends State<MyStackPage> {
         index: _currentIndex,
         children: <Widget>[
           Home(),
-          Data2(),
+          Data1(),
           Model(),
-          Profile3(),
+          Profile31(),
         ],
       ),
     );
